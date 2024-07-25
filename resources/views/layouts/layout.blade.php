@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <title>@yield('title', 'Library System')</title>
 </head>
-<body>
-    <button class="ml-4 p-3 rounded-md bg-[#8C7155] text-[#F3ECE7] hover:bg-[#705942]">Button</button>
+<body class="bg-[#F8F0E3] text-[#5A4633] min-h-screen flex items-center justify-center">
+    @yield('content')
 </body>
-</html>
+</html>`
