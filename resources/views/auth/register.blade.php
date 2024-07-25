@@ -49,7 +49,7 @@
                     Already registered?
                 </a>
                 <button type="submit"
-                    class="w-1/3 ml-4 p-3 rounded-md bg-[#8C7155] text-[#F3ECE7] hover:bg-[#705942]">Register</button>
+                    class="w-1/3 ml-4 p-3 rounded-md bg-[#8C7155] text-[#F3ECE7] hover:bg-[#705942] btn-xs sm:btn-sm md:btn-md lg:btn-lg">Register</button>
             </div>
         </form>
     </div>

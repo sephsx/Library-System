@@ -1,12 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="cupcake">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <title>@yield('title', 'Library System')</title>
 </head>
-<body class="bg-[#F8F0E3] text-[#5A4633] min-h-screen flex items-center justify-center">
+
+<body class="min-h-screen flex items-center justify-center">
     @yield('content')
 </body>
-</html>`
+
+</html>
