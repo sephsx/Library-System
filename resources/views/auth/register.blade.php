@@ -1,5 +1,4 @@
 @extends('layouts.layout')
-@section('title', 'Library System Register')
 @section('content')
 <div class="bg-[#F3E2C7] shadow-lg rounded-lg p-8 w-full max-w-screen-lg flex">
     <div class="w-1/2 flex items-center justify-center">
@@ -7,8 +6,9 @@
     </div>
     <div class="w-1/2 p-4">
         <h2 class="text-2xl font-bold mb-4 text-[#8C7155]">Library Registration</h2>
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
             @csrf
+            <!-- Other input fields -->
             <div class="mb-4">
                 <label for="name" class="block text-sm font-medium mb-2 text-[#8C7155]">Name</label>
                 <input id="name" class="block mt-1 w-full text-[#8C7155] border border-[#8C7155] rounded-md p-2"
@@ -43,6 +43,17 @@
                     <span class="mt-2 text-red-600 text-sm">{{ $message }}</span>
                 @enderror
             </div>
+            <div class="mb-4">
+                <label for="profile_img" class="block text-sm font-medium mb-2 text-[#8C7155]">Profile Image</label>
+                <input id="profile_img" class="block mt-1 w-full text-[#8C7155] border border-[#8C7155] rounded-md p-2"
+                    type="file" name="profile_img" accept="image/*" />
+                @error('profile_img')
+                    <span class="mt-2 text-red-600 text-sm">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <!-- Other input fields -->
+
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-[#8C7155] hover:text-[#5A4633] rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#8C7155]"
                     href="{{ route('login') }}">

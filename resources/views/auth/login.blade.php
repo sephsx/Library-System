@@ -1,11 +1,10 @@
 @extends('layouts.layout')
-@section('title', 'Library System Login')
 @section('content')
 <div class="bg-[#F3E2C7] shadow-lg rounded-lg p-8 w-full max-w-screen-lg flex">
     <div class="w-1/2 flex items-center justify-center">
         <img src="{{ asset('/img/Library-rafiki.svg') }}" alt="Library" class="w-auto h-auto object-cover rounded-lg" />
     </div>
-    <div class="w-1/2 p-4">
+    <div class="w-1/2 p-4 mb-3">
         <h2 class="text-2xl font-bold mb-4 text-[#8C7155]">Library System Login</h2>
         <form method="POST" action="{{ route('login') }}">
             @csrf
@@ -46,7 +45,7 @@
                 </label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
+            <div class="flex items-center justify-between mt-4">
                 @if (Route::has('password.request'))
                     <a class="underline text-sm text-[#8C7155] hover:text-[#5A4633] rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#8C7155]"
                         href="{{ route('password.request') }}">
@@ -55,9 +54,16 @@
                 @endif
 
                 <button type="submit"
-                    class="w-1/3 ml-4 p-3 rounded-md bg-[#8C7155] text-[#F3ECE7] hover:bg-[#705942]">Log in</button>
+                    class="ml-4 w-1/3 p-3 rounded-md bg-[#8C7155] text-[#F3ECE7] hover:bg-[#705942]">Log in</button>
             </div>
         </form>
+
+        <!-- Don't have an account? -->
+        <div class="mt-4 text-center">
+            <p class="text-sm  text-[#8C7155]">Don't have an account? 
+                <a href="{{ route('register') }}" class="underline text-[#8C7155] hover:text-[#5A4633]">Sign up</a>
+            </p>
+        </div>
     </div>
 </div>
 @endsection

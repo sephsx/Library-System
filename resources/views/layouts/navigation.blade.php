@@ -1,40 +1,37 @@
 <nav x-data="{ open: false }" class="bg-white border-b border-gray-100">
     <!-- Primary Navigation Menu -->
     <div class="navbar bg-base-100">
-        <div class="flex-1">
-            <a href="{{ route('dashboard') }}" class="btn btn-ghost text-xl">Library Management System</a>
-        </div>
-        <div class="flex-none gap-2">
-            <div class="dropdown dropdown-end">
-                <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
-                    <div class="w-10 rounded-full">
-                        <img
-                            alt="User Avatar"
-                            src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp" />
-                    </div>
-                </div>
-                <ul
-                    tabindex="0"
-                    class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 mr-3 shadow">
-                    <li>
-                        <a class="justify-between" href="{{ route('profile.edit') }}">
-                            Profile
+    <div class="flex-1">
+        <a href="{{ route('dashboard') }}" class="btn btn-ghost text-xl">Library System</a>
+    </div>
+    <div class="flex-none gap-2 flex items-center">
+        <div class="dropdown dropdown-end">
+            <div tabindex="0" role="button" class="btn btn-ghost btn-circle avatar">
+    <div class="w-10 rounded-full">
+        <img src="{{ Auth::user()->profile_img ? asset('storage/' . Auth::user()->profile_img) : asset('img/default_profile.svg') }}" alt="Profile Image">
+    </div>
+</div>
+
+            <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                <li>
+                    <a class="justify-between" href="{{ route('profile.edit') }}">
+                        Profile
+                    </a>
+                </li>
+                <li>
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <a href="{{ route('logout') }}"
+                           onclick="event.preventDefault(); this.closest('form').submit();">
+                            Logout
                         </a>
-                    </li>
-                    <li>
-                        <form method="POST" action="{{ route('logout') }}">
-                            @csrf
-                            <a href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                               this.closest('form').submit();">
-                                Logout
-                            </a>
-                        </form>
-                    </li>
-                </ul>
-            </div>
+                    </form>
+                </li>
+            </ul>
         </div>
     </div>
+</div>
+
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
