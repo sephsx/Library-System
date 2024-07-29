@@ -19,7 +19,7 @@ class AdminMiddleware
         if (Auth::check() && Auth::user()->role == 'admin') {
             return $next($request);
         } else {
-            return redirect('admin.dashboard'); // Redirect to a non-admin accessible page
+            return redirect('/dashboard'); // Redirect to a non-admin accessible page
         }
     }
 }
