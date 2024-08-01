@@ -15,6 +15,13 @@ class Book extends Model
         'genre',
         'description',
         'year_published',
-        'copies_available'
+        'copies_available',
+        'user_id',
     ];
+
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

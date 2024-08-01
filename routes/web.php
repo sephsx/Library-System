@@ -19,7 +19,6 @@ Route::middleware('auth')->group(function () {
         return view('dashboard');
     })->middleware(['auth', 'verified'])->name('dashboard');
 
-    // Route::get('books', [BooksController::class, 'inedx'])->name('books.inedx');
 });
 
 Route::middleware(['auth', 'admin'])->group(function () {
@@ -31,7 +30,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/index', [BooksController::class, 'index'])->name('books.index');
     Route::get('/create-book', [BooksController::class, 'create'])->name('books.create');
     Route::post('/store', [BooksController::class, 'store'])->name('books.store');
+    Route::get('/books/{id}/edit', [BooksController::class, 'edit'])->name('books.edit');
+    Route::put('/books/{id}', [BooksController::class, 'update'])->name('books.update');
+    Route::delete('/books/{id}', [BooksController::class, 'destroy'])->name('books.destroy');
 });
+
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 

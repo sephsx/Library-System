@@ -7,15 +7,13 @@
                 {{ __('Dashboard') }}
             </h2>
             <a href="{{ route('books.create') }}" class="btn btn-primary">Add a Book</a>
+            <a href="{{ route('books.index') }}" class="btn btn-primary">View All Books</a>
         </div>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 pt-0 text-gray-900">
-                    Welcome to your Dashboard, <span class="text-[#8C7155] font-bold">{{ Auth::user()->name }}</span>!
-                </div>
                 <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                         @foreach ($books as $book)
                             <div class="bg-white border rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition duration-300">
